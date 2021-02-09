@@ -1,7 +1,7 @@
 import XCTest
 import class Foundation.Bundle
 
-final class day_00_hello_worldTests: XCTestCase {
+final class day_01_data_typesTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -11,40 +11,22 @@ final class day_00_hello_worldTests: XCTestCase {
         guard #available(macOS 10.13, *) else {
             return
         }
-              
-        guard let path = Bundle.module.path(forResource: "test00", ofType: "txt") else {
-          print("resource not available")
-          return
-        }
-      
-        let stdin = FileHandle(forReadingAtPath: path)
-              
-        // gets path to binary to run
-        let fooBinary = productsDirectory.appendingPathComponent("day-00-hello-world")
-        
-        // creates Process intance and adds URL of executable
+
+        let fooBinary = productsDirectory.appendingPathComponent("day-01-data-types")
+
         let process = Process()
         process.executableURL = fooBinary
 
-        // creates Pipe object and assigns stdout to pipe
         let pipe = Pipe()
-        process.standardInput = stdin
         process.standardOutput = pipe
-      
-        // runs executable
+
         try process.run()
         process.waitUntilExit()
 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        var output = String(data: data, encoding: .utf8)!
-        output = output.trimmingCharacters(in: .newlines)
+        let output = String(data: data, encoding: .utf8)
 
-        let expectedOutput = """
-                             Hello, World.
-                             Welcome to 30 Days of Code!
-                             """
-      
-        XCTAssertEqual(output, expectedOutput)
+        XCTAssertEqual(output, "Hello, world!\n")
     }
 
     /// Returns path to the built products directory.
