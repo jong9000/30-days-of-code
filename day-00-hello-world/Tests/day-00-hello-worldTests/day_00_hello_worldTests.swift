@@ -11,22 +11,40 @@ final class day_00_hello_worldTests: XCTestCase {
         guard #available(macOS 10.13, *) else {
             return
         }
-
+              
+        guard let path = Bundle.module.path(forResource: "test00", ofType: "txt") else {
+          print("resource not available")
+          return
+        }
+      
+        let stdin = FileHandle(forReadingAtPath: path)
+              
+        // gets path to binary to run
         let fooBinary = productsDirectory.appendingPathComponent("day-00-hello-world")
-
+        
+        // creates Process intance and adds URL of executable
         let process = Process()
         process.executableURL = fooBinary
 
+        // creates Pipe object and assigns stdout to pipe
         let pipe = Pipe()
+        process.standardInput = stdin
         process.standardOutput = pipe
-
+      
+        // runs executable
         try process.run()
         process.waitUntilExit()
 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)
+        var output = String(data: data, encoding: .utf8)!
+        output = output.trimmingCharacters(in: .newlines)
 
-        XCTAssertEqual(output, "Hello, world!\n")
+        let expectedOutput = """
+                             Hello, World.
+                             Welcome to 30 Days of Code!
+                             """
+      
+        XCTAssertEqual(output, expectedOutput)
     }
 
     /// Returns path to the built products directory.
