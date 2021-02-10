@@ -19,7 +19,7 @@ let package = Package(
             name: "day-01-data-typesTests",
             dependencies: ["day-01-data-types"],
             resources: [
-              .process("TestsData")]
+              .copy("TestsData")]
         ),
     ]
 )

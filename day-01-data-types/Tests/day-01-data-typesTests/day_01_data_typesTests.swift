@@ -10,49 +10,42 @@ final class day_01_data_typesTests: XCTestCase {
             return
         }
         
-        guard let testCaseUrlArray = Bundle.module.urls(forResourcesWithExtension: "txt", subdirectory: nil) else {
+        guard let testDataInputArray = Bundle.module.urls(forResourcesWithExtension: "txt", subdirectory: "TestsData/Input") else {
           print("⛔️ Unable to access test case data.")
           return
         }
-
-        testInput(testCaseArray: testCaseUrlArray)
+        
+        guard let testDataOutputArray = Bundle.module.urls(forResourcesWithExtension: "txt", subdirectory: "TestsData/Output") else {
+          print("⛔️ Unable to access test case data.")
+          return
+          
+        }
+        
+        for n in 0..<testDataInputArray.count {
+          
+          let stdin = FileHandle(forReadingAtPath: testDataInputArray[n].path)
+          
+          let fooBinary = productsDirectory.appendingPathComponent("day-01-data-types")
+          
+          let process = Process()
+          process.executableURL = fooBinary
+          
+          let pipe = Pipe()
+          process.standardInput = stdin
+          process.standardOutput = pipe
+          
+          try? process.run()
+          process.waitUntilExit()
+          
+          let data = pipe.fileHandleForReading.readDataToEndOfFile()
+          let output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+          
+          let expectedOutput = try? String(contentsOf: testDataOutputArray[n]).trimmingCharacters(in: .whitespacesAndNewlines)
+          
+          XCTAssertEqual(output, expectedOutput)
+        }
     }
   
-    func testInput(testCaseArray: [URL]) {
-      
-      for testCase in testCaseArray {
-        
-        let stdin = FileHandle(forReadingAtPath: testCase.path)
-      
-        let fooBinary = productsDirectory.appendingPathComponent("day-01-data-types")
-
-        let process = Process()
-        process.executableURL = fooBinary
-
-        let pipe = Pipe()
-        process.standardInput = stdin
-        process.standardOutput = pipe
-
-        do {
-          try process.run()
-        } catch {
-          print("error")
-        }
-
-        process.waitUntilExit()
-
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
-      
-        let expectedOutput = """
-                             16
-                             8.0
-                             HackerRank is the best place to learn and practice coding!
-                             """
-
-        XCTAssertEqual(output, expectedOutput)
-      }
-    }
 
     /// Returns path to the built products directory.
     var productsDirectory: URL {
