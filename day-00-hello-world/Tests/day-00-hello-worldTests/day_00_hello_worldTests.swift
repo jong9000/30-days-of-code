@@ -11,7 +11,7 @@ final class day_00_hello_worldTests: XCTestCase {
         guard #available(macOS 10.13, *) else {
             return
         }
-              
+                    
         guard let path = Bundle.module.path(forResource: "test00", ofType: "txt") else {
           print("resource not available")
           return
