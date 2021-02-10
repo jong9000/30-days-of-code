@@ -17,6 +17,9 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "day-01-data-typesTests",
-            dependencies: ["day-01-data-types"]),
+            dependencies: ["day-01-data-types"],
+            resources: [
+              .process("TestsData")]
+        ),
     ]
 )

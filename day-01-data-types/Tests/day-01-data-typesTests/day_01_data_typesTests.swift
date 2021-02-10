@@ -2,31 +2,56 @@ import XCTest
 import class Foundation.Bundle
 
 final class day_01_data_typesTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+      
+      func testCases() throws {
 
         // Some of the APIs that we use below are available in macOS 10.13 and above.
         guard #available(macOS 10.13, *) else {
             return
         }
+        
+        guard let testCaseUrlArray = Bundle.module.urls(forResourcesWithExtension: "txt", subdirectory: nil) else {
+          print("⛔️ Unable to access test case data.")
+          return
+        }
 
+        testInput(testCaseArray: testCaseUrlArray)
+    }
+  
+    func testInput(testCaseArray: [URL]) {
+      
+      for testCase in testCaseArray {
+        
+        let stdin = FileHandle(forReadingAtPath: testCase.path)
+      
         let fooBinary = productsDirectory.appendingPathComponent("day-01-data-types")
 
         let process = Process()
         process.executableURL = fooBinary
 
         let pipe = Pipe()
+        process.standardInput = stdin
         process.standardOutput = pipe
 
-        try process.run()
+        do {
+          try process.run()
+        } catch {
+          print("error")
+        }
+
         process.waitUntilExit()
 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)
+        let output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+      
+        let expectedOutput = """
+                             16
+                             8.0
+                             HackerRank is the best place to learn and practice coding!
+                             """
 
-        XCTAssertEqual(output, "Hello, world!\n")
+        XCTAssertEqual(output, expectedOutput)
+      }
     }
 
     /// Returns path to the built products directory.
@@ -42,6 +67,6 @@ final class day_01_data_typesTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testCases", testCases),
     ]
 }
