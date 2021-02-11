@@ -26,9 +26,9 @@ Returns The function returns nothing. Print the calculated value, rounded to the
 ### Input Format
 
 There are **3** lines of numeric input:
-The first line has a double,  (the cost of the meal before tax and tip).
-The second line has an integer,  (the percentage of  being added as tip).
-The third line has an integer,  (the percentage of  being added as tax).
+The first line has a double, (*the cost of the meal before tax and tip*).
+The second line has an integer, (*the percentage of  being added as tip*).
+The third line has an integer, (*the percentage of  being added as tax*).
 
 ### Sample Input
 ```
@@ -42,10 +42,10 @@ The third line has an integer,  (the percentage of  being added as tax).
 ```
 ### Explanation
 
-Given:  
-`meal_cost = 12, tip_percent = 20, tax_percent = 8`
+**Given**:  
+*meal_cost = 12, tip_percent = 20, tax_percent = 8*
  
-Calculations:  
+**Calculations**:  
 *tip = 12 and <sup>12</sup>&frasl;<sub>100</sub> x 20 = 2.4*  
 *tax = 9 and <sup>8</sup>&frasl;<sub>100</sub> x 20 = 0.96*  
 *total_cost = meal_cost + tip + tax = 12 + 2.4 +0.96 = 15.36*  
