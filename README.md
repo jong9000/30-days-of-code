@@ -10,8 +10,7 @@
   </a>
 </p>
 
-## *Swift solutions to HackerRank's 30 days of code.* 
-
+## Swift solutions to HackerRank's 30 days of code.* 
 
 ### How to Run
 - clone the repo
