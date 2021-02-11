@@ -1,12 +1,14 @@
 # 30 Days of Code
-
-<a href="https://www.hackerrank.com/jonmarkgentry">
-  <img src="https://theme.zdassets.com/theme_assets/992614/255700da50a74ed1b8f2cab3353a0106d75f4fdd.svg">
-</a>
-
-<a href="https://swift.org/">
-  <img style="vertical-align: .5em" height=60 src="https://swift.org/assets/images/swift.svg">
-</a>
+<p>
+  <a href="https://www.hackerrank.com/jonmarkgentry">
+    <img src="https://theme.zdassets.com/theme_assets/992614/255700da50a74ed1b8f2cab3353a0106d75f4fdd.svg" alt="Hackerrank logo" height=100>
+  </a>
+</p>
+<p>
+  <a href="https://swift.org/">
+    <img src="https://swift.org/assets/images/swift.svg" alt="Swift logo" height=70 >
+  </a>
+</p>
 
 ## *Swift solutions to HackerRank's 30 days of code.* 
 
