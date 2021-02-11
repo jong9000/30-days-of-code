@@ -1,16 +1,19 @@
 # 30 Days of Code
-<p align="center">
-<a href="https://www.hackerrank.com/jonmarkgentry">
-  <img height=120 src="https://theme.zdassets.com/theme_assets/992614/255700da50a74ed1b8f2cab3353a0106d75f4fdd.svg">
-</a>
-</p>
-<p align="center">
-<a ref="https://swift.org/">
-  <img height=80 src="https://swift.org/assets/images/swift.svg">
-</a>
+
+<p style="text-align: center;">
+  <a href="https://www.hackerrank.com/jonmarkgentry">
+    <img height=120 style="vertical-align: text-top;" src="https://theme.zdassets.com/theme_assets/992614/255700da50a74ed1b8f2cab3353a0106d75f4fdd.svg">
+  </a>
 </p>
 
-Swift solutions to HackerRank's 30 days of code. 
+<p style="text-align: center;">
+  <a href="https://swift.org/">
+    <img height=80 src="https://swift.org/assets/images/swift.svg">
+  </a>
+</p>
+
+<p style="text-align: center; font-size: 24px;">Swift solutions to HackerRank's 30 days of code. 
+</p>
 
 ### How to Run
 - clone the repo
