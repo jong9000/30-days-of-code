@@ -2,23 +2,31 @@
 
 Swift solutions to HackeRank's 30 days of code. 
 
-### Intro
-
 ### How to Run
-- Each day is it's own executable and can be tested in 1 of 4 ways listed below:
+- clone the repo.
+- `cd` into a day's folder
+- each day is it's own executable and can be tested in 1 of 4 ways:
 
-#### Xcode
-- Clone the repo
-- `cd` into each day's folder
-- `open Package.swift`
-- build
-- run and manaully enter values into the debug area
-- test using the text files
+#### Xcode (Debug Area)
+1. `open Package.swift` from the command line
+2. `command + r` build and run 
+3. enter input values into debug area
+4. compare stdout to expected output
+  
+#### Xcode (Xctest)
+1. `open Package.swift`
+2. `command + b` to build, `command + u` to run test suite 
+3. inputs & expected output will be pulled from `TestsData` folder
+4. inputs & expected output will be pulled from `TestsData` folder
 
-### Command Line
-- `swift build`
-- `swift run`
-- enter values into command line
-- stdout will print output
-- or `swift test`
-  - runs test cases with text file inputs and expecxted outputs
+#### Command Line (stdin/stdout)
+1. `swift build`
+2. `swift run`
+3. enter input values into command line
+4. compare stdout to expected output
+
+#### Command Line (Xctest)
+1. `swift build`
+2. `swift test`
+3. inputs & expected output will be pulled from `TestsData` folder
+4. inputs & expected output will be pulled from `TestsData` folder
