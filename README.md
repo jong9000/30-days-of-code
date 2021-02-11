@@ -17,7 +17,7 @@ Swift solutions to HackeRank's 30 days of code.
 1. `open Package.swift`
 2. `command + b` to build, `command + u` to run test suite 
 3. inputs & expected output will be pulled from `TestsData` folder
-4. inputs & expected output will be pulled from `TestsData` folder
+4. verify all tests have passed
 
 #### Command Line (stdin/stdout)
 1. `swift build`
@@ -29,4 +29,4 @@ Swift solutions to HackeRank's 30 days of code.
 1. `swift build`
 2. `swift test`
 3. inputs & expected output will be pulled from `TestsData` folder
-4. inputs & expected output will be pulled from `TestsData` folder
+4. verify all tests have passed
