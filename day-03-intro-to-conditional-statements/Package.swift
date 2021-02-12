@@ -17,6 +17,9 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "day-03-intro-to-conditional-statementsTests",
-            dependencies: ["day-03-intro-to-conditional-statements"]),
+            dependencies: ["day-03-intro-to-conditional-statements"],
+          resources: [
+            .copy("TestsData")]
+          ),
     ]
 )
