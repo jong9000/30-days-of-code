@@ -46,8 +46,8 @@ Not Weird
 
 ### Explanation
 
-Sample Case 0: `n = 3`
+Sample Case 0: `n = 3`  
  `n` is odd and odd numbers are weird, so we print `Weird`.
 
-Sample Case 1: `n = 24`
+Sample Case 1: `n = 24`  
 `n > 20` and `n` is even, so it is not weird. Thus, we print `Not Weird`.
