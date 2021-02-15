@@ -36,7 +36,7 @@ for _ in 0..<t {
 
     p.amIOld()
 
-    for i in 1...3 {
+    for _ in 1...3 {
         p.yearPasses()
     }
 
