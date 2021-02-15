@@ -27,3 +27,20 @@ class Person {
         self.age += 1
     }
 }
+
+let t = Int(readLine()!)!
+
+for _ in 0..<t {
+    let age = Int(readLine()!)!
+    let p = Person(initialAge: age)
+
+    p.amIOld()
+
+    for i in 1...3 {
+        p.yearPasses()
+    }
+
+    p.amIOld()
+
+    print("")
+}
