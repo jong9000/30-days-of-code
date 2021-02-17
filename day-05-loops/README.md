@@ -4,7 +4,7 @@
 In this challenge, we will use loops to do some math. 
 
 ### Task
-Given an integer, `n`, print its first `10` multiples. Each multiple `n x i` (where `1 ≤ i ≤ 10) should be printed on a new line in the form: n x i = result.
+Given an integer, `n`, print its first `10` multiples. Each multiple `n x i` (where `1 ≤ i ≤ 10`) should be printed on a new line in the form: n x i = result.
 
 ### Example
 `n = 3`
