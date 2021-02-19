@@ -17,6 +17,9 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "day-06-lets-reviewTests",
-            dependencies: ["day-06-lets-review"]),
+            dependencies: ["day-06-lets-review"],
+            resources: [
+              .copy("TestsData")]
+        ),
     ]
 )
