@@ -18,7 +18,7 @@ The second line contains ***N*** space-separated integers that describe array **
 
 ### Constraints
 - **1 ≤ *N* ≤ 1000**
-- **1 ≤ *A[i]* ≤ 1000**, where ***A[i]*** is the ***i***<sup>th</sup> integer in the array.
+- **1 ≤ *A[i]* ≤ 1000**, where ***A[i]*** is the ***i***<em><sup>th</sup></em> integer in the array.
 
 ### Output Format
 
