@@ -17,32 +17,36 @@ final class day_06_lets_reviewTests: XCTestCase {
           print("⛔️ Unable to access test case data.")
           return
         }
+
+      for n in 0..<testDataInputArray.count where n != 8 {
+          
+          // next line to be removed
+          print("☢️ test data \(testDataInputArray[n].lastPathComponent)")
+          
+          let stdin = FileHandle(forReadingAtPath: testDataInputArray[n].path)
+
+          let fooBinary = productsDirectory.appendingPathComponent("day-06-lets-review")
+
+          let process = Process()
+          process.executableURL = fooBinary
+
+          let pipe = Pipe()
+          process.standardInput = stdin
+          process.standardOutput = pipe
+
+          try? process.run()
+          process.waitUntilExit()
+
+          let data = pipe.fileHandleForReading.readDataToEndOfFile()
+          let output = (String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines))!
+          
+          let matchingOutputFileIndex = testDataOutputArray.firstIndex { $0.lastPathComponent == testDataInputArray[n].lastPathComponent}
         
-      for n in 9..<testDataInputArray.count {
-        
-        let stdin = FileHandle(forReadingAtPath: testDataInputArray[n].path)
-        
-        let fooBinary = productsDirectory.appendingPathComponent("day-06-lets-review")
-            
-        let process = Process()
-        process.executableURL = fooBinary
+          let expectedOutput = try? String(contentsOf: testDataOutputArray[matchingOutputFileIndex!]).trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let pipe = Pipe()
-        process.standardInput = stdin
-        process.standardOutput = pipe
+          XCTAssertEqual(output, expectedOutput)
 
-        try? process.run()
-        process.waitUntilExit()
-
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        let expectedOutput = try? String(contentsOf: testDataOutputArray[n]).trimmingCharacters(in: .whitespacesAndNewlines)
-
-        XCTAssertEqual(output, expectedOutput)
-
-      
-      }
+        }
     }
 
     /// Returns path to the built products directory.
