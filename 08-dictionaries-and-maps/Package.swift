@@ -17,6 +17,9 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "08-dictionaries-and-mapsTests",
-            dependencies: ["08-dictionaries-and-maps"]),
+            dependencies: ["08-dictionaries-and-maps"],
+            resources: [
+              .copy("TestsData")]
+        ),
     ]
 )
