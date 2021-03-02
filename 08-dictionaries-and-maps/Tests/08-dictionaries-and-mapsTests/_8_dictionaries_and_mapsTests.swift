@@ -1,7 +1,7 @@
 import XCTest
 import class Foundation.Bundle
 
-final class _8_dicctionaries_and_mapsTests: XCTestCase {
+final class _8_dictionaries_and_mapsTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -12,7 +12,7 @@ final class _8_dicctionaries_and_mapsTests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("08-dicctionaries-and-maps")
+        let fooBinary = productsDirectory.appendingPathComponent("08-dictionaries-and-maps")
 
         let process = Process()
         process.executableURL = fooBinary
