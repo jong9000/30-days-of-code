@@ -10,15 +10,15 @@ Given ***n*** names and phone numbers, assemble a phone book that maps friends' 
 
 ### Input Format
 
-The first line contains an integer, ***n***, denoting the number of entries in the phone book.
-Each of the ***n*** subsequent lines describes an entry in the form of ***n*** space-separated values on a single line. The first value is a friend's name, and the second value is an **8**-digit phone number.
+The first line contains an integer, ***n***, denoting the number of entries in the phone book.  
+Each of the ***n*** subsequent lines describes an entry in the form of ***2*** space-separated values on a single line. The first value is a friend's name, and the second value is an **8**-digit phone number.
 
 After the ***n*** lines of phone book entries, there are an unknown number of lines of queries. Each line (query) contains a ***name*** to look up, and you must continue reading lines until there is no more input.
 
 **Note:** Names consist of lowercase English alphabetic letters and are first names only.
 
 ### Constraints
-- <b>1 < <em>n</em> ≤ 10<sup>5</sup></b>
+- <b>1 ≤ <em>n</em> ≤ 10<sup>5</sup></b>
 - <b>1 ≤ <em>queries</em> ≤ 10<sup>5</sup></b>
 
 ### Output Format
@@ -50,11 +50,11 @@ We add the following ***n = 3*** (Key,Value) pairs to our map so it looks like t
 
 We then process each query and print `key=value` if the queried ***key*** is found in the map; otherwise, we print `Not found`.
 
-Query 0: `sam`
+Query 0: `sam`  
 Sam is one of the keys in our dictionary, so we print `sam=99912222`.
 
-Query 1: `edward`
+Query 1: `edward`  
 Edward is not one of the keys in our dictionary, so we print `Not found`.
 
-Query 2: `harry`
+Query 2: `harry`  
 Harry is one of the keys in our dictionary, so we print `harry=12299933`.
