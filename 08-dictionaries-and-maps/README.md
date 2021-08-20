@@ -44,9 +44,12 @@ harry=12299933
 We add the following ***n = 3*** (Key,Value) pairs to our map so it looks like this:  
 ***phoneBook = {(sam, 99912222), (tom, 11122222), (harry, 12299933)}***  
 We then process each query and print `key=value` if the queried ***key*** is found in the map; otherwise, we print `Not found`.  
+</br>
 Query 0: `sam`   
 Sam is one of the keys in our dictionary, so we print `sam=99912222`.  
+</br>
 Query 1: `edward`   
 Edward is not one of the keys in our dictionary, so we print `Not found`.  
+</br>
 Query 2: `harry`   
 Harry is one of the keys in our dictionary, so we print `harry=12299933`.  
