@@ -14,22 +14,45 @@ final class day_08_dictionaries_and_mapsTests: XCTestCase {
 
         // Mac Catalyst won't have `Process`, but it is supported for executables.
         #if !targetEnvironment(macCatalyst)
+        
+        guard let testDataInputArray = Bundle.module.urls(forResourcesWithExtension: "txt", subdirectory: "TestsData/Input") else {
+          print("⛔️ Unable to access test case data.")
+          return
+        }
+      
+        guard let testDataOutputArray = Bundle.module.urls(forResourcesWithExtension: "txt", subdirectory: "TestsData/Output") else {
+          print("⛔️ Unable to access test case data.")
+          return
+        }
+        
+        for n in 0..<testDataInputArray.count where n == 2 {
+          
+          print("⚠️ Testing \(testDataInputArray[n].lastPathComponent)")
+          
+          let stdin = FileHandle(forReadingAtPath: testDataInputArray[n].path)
+         
+          let fooBinary = productsDirectory.appendingPathComponent("day-08-dictionaries-and-maps")
 
-        let fooBinary = productsDirectory.appendingPathComponent("day-08-dictionaries-and-maps")
+          let process = Process()
+          process.executableURL = fooBinary
 
-        let process = Process()
-        process.executableURL = fooBinary
+          let pipe = Pipe()
+          process.standardOutput = stdin
+          process.standardOutput = pipe
 
-        let pipe = Pipe()
-        process.standardOutput = pipe
+          try? process.run()
+          process.waitUntilExit()
 
-        try process.run()
-        process.waitUntilExit()
-
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)
-
-        XCTAssertEqual(output, "Hello, world!\n")
+          let data = pipe.fileHandleForReading.readDataToEndOfFile()
+          let output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+          
+          let matchingOutputFileIndex = testDataOutputArray.firstIndex { $0.lastPathComponent == testDataInputArray[n].lastPathComponent }
+          
+          let expectedOutput = try? String(contentsOf: testDataOutputArray[matchingOutputFileIndex!]).trimmingCharacters(in: .whitespacesAndNewlines)
+            
+          XCTAssertEqual(output, expectedOutput)
+        }
+          
         #endif
     }
 
